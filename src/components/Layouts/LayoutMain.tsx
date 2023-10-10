@@ -1,6 +1,13 @@
+import { Outlet } from "react-router-dom";
+
 const LayoutMain = () => {
   return (
-    <div>LayoutMain</div>
+    <div>
+      LayoutMain
+      <Outlet />
+    </div>
+    
+
   )
 }
 

@@ -7,7 +7,7 @@ const CartModal = ( {handleShowCartModal}) => {
             Cerrar 
         </button>
 
-        <table className="w-[90%] mt-10">
+        <table className="w-[95%] mt-12">
             <thead>
                 <tr>
                     <th> Product </th>

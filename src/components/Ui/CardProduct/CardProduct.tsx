@@ -9,7 +9,7 @@ const CardProduct = ( { product} ) => {
 
     <div className="bg-blue-500 rounded-2xl flex flex-col items-center justify-center relative h-96 w-full before:bg-[rgba(0, 88, 254, 50%)] before:rounded-lg before:clip-circle before:left-0 before:top-0 before:absolute before:w-full before:h-full before:transition-transform before:duration-500 before:ease-in-out ">
 
-        <img  className= "mb-4 object-contain absolute top-20 -translate-y-2/5 z-10 w-16" src={product.image} alt="Imagen-del-Producto" />        
+        <img  className= "mb-4 object-contain absolute top-20 -translate-y-2/5 z-10 w-20" src={product.image} alt={product.name} />        
 
         <div className="absolute bottom-0 flex flex-col items-center justify-center">
 
@@ -29,7 +29,7 @@ const CardProduct = ( { product} ) => {
 
             </div>
 
-            <button className="bg-yellow-400 hover:bg-yellow-500 rounded-lg text-white cursor-pointer text-lg font-bold my-2 mx-auto py-2 px-4 text-center uppercase transition duration-500 ease-in-out w-40"> 
+            <button className="bg-yellow-400 hover:bg-yellow-500 rounded-lg text-yellow-700 cursor-pointer text-md font-bold my-2 mx-auto py-1 px-3 text-center uppercase transition duration-500 ease-in-out w-40"> 
                 Agregar al carrito 
             </button>
 

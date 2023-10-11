@@ -6,12 +6,12 @@ import CartContext from "./CartContext";
  * 
  */
 
-export const CartProvider = () => {
+export const CartProvider = ( {children} ) => {
      const [ state, dispatch ] = useReducer( cartReducer , initialState)
 
      return(
 
-        <CartContext.Provider value={ {state , dispatch } } >
+        <CartContext.Provider value={{ state , dispatch }} >
             { children }
         </CartContext.Provider>
      )

@@ -3,8 +3,27 @@
  * product => es el objeto indivitual recibido en el prop
  */
 
+import { useContext } from "react";
+import CartContext from "../../../context/CartContext";
+
+
 
 const CardProduct = ( { product} ) => {
+
+    
+  const { dispatch } = useContext( CartContext ) ;
+
+  const item = {
+    id : product.tail ,
+    name : product.name ,
+    image: product.image,
+    quantity : 1
+  }
+
+  const addToCart = ( item ) => {
+    dispatch( {type: "ADD_TO_CART" , payload :item})
+  }
+
   return (
 
     <div className="bg-blue-500 rounded-2xl flex flex-col items-center justify-center relative h-96 w-full before:bg-[rgba(0, 88, 254, 50%)] before:rounded-lg before:clip-circle before:left-0 before:top-0 before:absolute before:w-full before:h-full before:transition-transform before:duration-500 before:ease-in-out ">
@@ -29,7 +48,9 @@ const CardProduct = ( { product} ) => {
 
             </div>
 
-            <button className="bg-yellow-400 hover:bg-yellow-500 rounded-lg text-yellow-700 cursor-pointer text-md font-bold my-2 mx-auto py-1 px-3 text-center uppercase transition duration-500 ease-in-out w-40"> 
+            <button 
+            onClick = { () => addToCart(item)}
+            className="bg-yellow-400 hover:bg-yellow-500 rounded-lg text-yellow-700 cursor-pointer text-md font-bold my-2 mx-auto py-1 px-3 text-center uppercase transition duration-500 ease-in-out w-40"> 
                 Agregar al carrito 
             </button>
 

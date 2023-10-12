@@ -2,11 +2,11 @@ import  { useEffect, useState } from "react" ;
 import Hero from "../../components/Ui/Hero/Hero" ;
 import { CardProduct } from "../../components/Ui/CardProduct";
 import { getProducts } from "../../services";
-import { Products } from "../../interface";
+import { Product } from "../../interface";
 
 const Home = () => {
 
-  const [ products, setProducts] = useState<Products[]>([]); 
+  const [ products, setProducts] = useState<Product[]>([]); 
   const [ error , setError ] = useState( false ) 
   const [ isLoading, setIsLoading ] = useState( true ) ;
 

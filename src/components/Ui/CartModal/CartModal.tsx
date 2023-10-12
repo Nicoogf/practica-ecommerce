@@ -1,5 +1,10 @@
+import { FC } from "react"
 
-const CartModal = ( {handleShowCartModal}) => {
+interface Props {
+    handleShowCartModal : () => void 
+}
+
+const CartModal: FC<Props> = ( { handleShowCartModal }) => {
   return (
     <div className="fixed top-3 right-4 bg-[rgba(0,0,0,0.92)] flex flex-col justify-between items-center p-4 z-50 w-[400px] h-[600px] rounded-3xl">
 

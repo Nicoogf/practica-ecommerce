@@ -3,12 +3,17 @@
  * product => es el objeto indivitual recibido en el prop
  */
 
-import { useContext } from "react";
+import { FC, useContext } from "react";
 import CartContext from "../../../context/CartContext";
+import { Product  } from "../../../interface";
 
 
+interface Props  {
+  product : Product[]
+}
 
-const CardProduct = ( { product} ) => {
+
+const CardProduct: FC<Props> = ( { product } ) => {
 
     
   const { dispatch } = useContext( CartContext ) ;

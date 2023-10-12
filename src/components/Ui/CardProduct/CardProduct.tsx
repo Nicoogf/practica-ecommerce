@@ -6,6 +6,7 @@
 import { FC } from "react";
 import useCartContext from "../../../hooks/useCartContext";
 import { CartProduct, Product } from "../../../interface";
+import { toast } from 'sonner'
 
 
 interface Props  {
@@ -29,6 +30,7 @@ const CardProduct: FC<Props> = ( { product } ) => {
 
   const addToCart = ( item : CartProduct ) => {
     dispatch( {type: "ADD_TO_CART" , payload :item})
+    toast.success("Producto agregado")
   }
 
   return (

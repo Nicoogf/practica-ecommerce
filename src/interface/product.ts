@@ -24,7 +24,8 @@ export interface Release {
     id : number ;
     name : string ;
     image : string ;
-    quantity : number 
+    quantity : number  ;
+    price: number;
     // TODO : price 
   }
   

@@ -1,12 +1,28 @@
-import { FC } from "react"
+import { FC } from "react" ;
+import useCartContext from "../../../hooks/useCartContext";
+import { CartProduct } from "../../../interface";
 
 interface Props {
     handleShowCartModal : () => void 
 }
 
-const CartModal: FC<Props> = ( { handleShowCartModal }) => {
+export const CartModal: FC<Props> = ({ handleShowCartModal }) => {
+
+  const { state:{cartItems} , dispatch} = useCartContext() ;
+
+
+  const removeToCart = ( item : CartProduct) => {
+    dispatch( {type : "REMOVE_FROM_CART" , payload: item})
+  }
+
+  const addToCart = ( item : CartProduct) => {
+    dispatch( {type : "ADD_TO_CART" , payload: item})
+  }
+
+ 
+
   return (
-    <div className="fixed top-3 right-4 bg-[rgba(0,0,0,0.92)] flex flex-col justify-between items-center p-4 z-50 w-[400px] h-[600px] rounded-3xl">
+    <div className="fixed top-3 right-4 bg-[rgba(0,0,0,0.92)] flex flex-col justify-between items-center p-4 z-50 w-[600px] h-[600px] rounded-3xl">
 
         <button className=" bg-red-600 text-white font-bold p-2 rounded-lg absolute top-2 right-2" onClick={handleShowCartModal}> 
             Cerrar 
@@ -23,16 +39,27 @@ const CartModal: FC<Props> = ( { handleShowCartModal }) => {
             </thead>
 
             <tbody>
-                <tr>
-                    <td className="text-center"> name </td>
+
+                {cartItems.map(( item )=> (
+                    <tr key = { item.id } >
+                    <td className="text-center">  <p> { item.name } </p> </td>
                     <td className="text-center">
-                        <button className="bg-yellow-500 px-3 text-center rounded-md"> - 1 </button> 
+                        <button className="bg-yellow-500 px-3 text-center rounded-md"
+                                onClick = {() => removeToCart(item)}> 
+                         - 1 
+                        </button> 
                     </td>
-                    <td className="text-center"> 12 </td>
+                    <td className="text-center">  <p> { item.quantity } </p> </td>
                     <td className="text-center">
-                        <button className="bg-yellow-500 px-3 text-center rounded-md"> + 1 </button>
+                        <button className="bg-yellow-500 px-3 text-center rounded-md"
+                                onClick = {() => addToCart(item)}> 
+                                + 1 
+                         </button>
                     </td>
-                </tr>
+                    </tr>
+                ))}
+
+                
             </tbody>        
         </table>
 

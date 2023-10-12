@@ -2,6 +2,7 @@ import Logo  from "../../../assets/logo.png" ;
 import Carrito  from "../../../assets/carrito.png" ;
 import { useState } from "react";
 import { CartModal } from "../CartModal";
+import useCartContext from "../../../hooks/useCartContext";
 
 /**
  * 
@@ -18,6 +19,8 @@ const Navbar = () => {
     setShowModal( prevState => !prevState)
   }
 
+  const { state :{cartItems}} = useCartContext()
+
   return (
     <nav className="bg-gray-800 py-4 text-white flex flex-row justify-around w-full">
         <div className="flex flex-row items-center gap-2 cursor-pointer">
@@ -26,7 +29,9 @@ const Navbar = () => {
         </div>
 
         <div className="relative cursor-pointer border-2 border-gray-600 p-1 rounded-3xl">
-            <p className="absolute bg-red-600 px-2 rounded-full -top-3 -right-3"> 7 </p>
+            <p className="absolute bg-red-600 px-2 rounded-full -top-3 -right-3"> 
+              {cartItems.length}
+            </p>
             <img className='w-[55px]' src={Carrito} alt='Carrito de compras' onClick={handleShowCartModal}/>
         </div>
         { showModal && <CartModal handleShowCartModal={handleShowCartModal}/>}

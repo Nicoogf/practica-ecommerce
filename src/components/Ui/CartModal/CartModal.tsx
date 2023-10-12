@@ -19,6 +19,13 @@ export const CartModal: FC<Props> = ({ handleShowCartModal }) => {
     dispatch( {type : "ADD_TO_CART" , payload: item})
   }
 
+  const totalPay = () => {
+    const total = cartItems.reduce((acc , item) => {
+        return acc + item.price * item.quantity
+    } , 0)
+    return total
+  }
+
  
 
   return (
@@ -64,7 +71,7 @@ export const CartModal: FC<Props> = ({ handleShowCartModal }) => {
         </table>
 
         <div>
-            <h3> Total : 4000,00</h3>
+            <h3> $ {totalPay()}</h3>
         </div>
 
         <div>

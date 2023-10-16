@@ -61,7 +61,7 @@ const Table = () => {
     </table>
 
         <div>
-            <h3 className="text-2xl text-center font-semibold text-white my-8"> $ {totalPay()}</h3>
+            <h3 className="text-2xl text-center font-semibold text-white my-8"> Total : $ {totalPay()}</h3>
         </div>
     </>
   )

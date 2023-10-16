@@ -28,10 +28,10 @@ const Table = () => {
     <table className="w-[95%] mt-12">
             <thead>
                 <tr>
-                    <th> Product </th>
-                    <th> Delete </th>
-                    <th> Quantity </th>
-                    <th> Add </th>
+                    <th className="text-white"> Product </th>
+                    <th className="text-white"> Delete </th>
+                    <th className="text-white"> Quantity </th>
+                    <th className="text-white"> Add </th>
                 </tr>
             </thead>
 
@@ -39,16 +39,16 @@ const Table = () => {
 
                 {cartItems.map(( item )=> (
                     <tr key = { item.id } >
-                    <td className="text-center">  <p> { item.name } </p> </td>
-                    <td className="text-center">
-                        <button className="bg-yellow-500 px-3 text-center rounded-md"
+                    <td className="text-center text-white p-2">  <p> { item.name } </p> </td>
+                    <td className="text-center text-white p-2">
+                        <button className="bg-yellow-500 px-3 text-center rounded-md "
                                 onClick = {() => removeToCart(item)}> 
                          - 1 
                         </button> 
                     </td>
-                    <td className="text-center">  <p> { item.quantity } </p> </td>
-                    <td className="text-center">
-                        <button className="bg-yellow-500 px-3 text-center rounded-md"
+                    <td className="text-center text-white p-2">  <p> { item.quantity } </p> </td>
+                    <td className="text-center text-white p-2">
+                        <button className="bg-yellow-500 px-3 text-center rounded-md "
                                 onClick = {() => addToCart(item)}> 
                                 + 1 
                          </button>
@@ -58,10 +58,10 @@ const Table = () => {
 
                 
             </tbody>        
-        </table>
+    </table>
 
         <div>
-            <h3> $ {totalPay()}</h3>
+            <h3 className="text-2xl text-center font-semibold text-white my-8"> $ {totalPay()}</h3>
         </div>
     </>
   )

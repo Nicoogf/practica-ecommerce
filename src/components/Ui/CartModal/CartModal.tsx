@@ -1,11 +1,19 @@
 import { FC } from "react";
 import Table from "../Table/Table";
+import { useNavigate } from "react-router-dom";
 
 interface Props {
     handleShowCartModal : () => void 
 }
 
 export const CartModal: FC<Props> = ({ handleShowCartModal }) => {
+
+  const navigate = useNavigate() ;
+
+  const handleNavigate = () =>{
+     navigate("/checkout")
+     handleShowCartModal()
+  }
 
 
  
@@ -21,7 +29,7 @@ export const CartModal: FC<Props> = ({ handleShowCartModal }) => {
 
 
         <div>
-            <button className="bg-yellow-500 px-3 text-center rounded-md py-4 text-yellow-800 font-semibold"> Terminar Compra </button>
+            <button className="bg-yellow-500 px-3 text-center rounded-md py-4 text-yellow-800 font-semibold" onClick={ handleNavigate }> Terminar Compra </button>
         </div>
     </div>
   )

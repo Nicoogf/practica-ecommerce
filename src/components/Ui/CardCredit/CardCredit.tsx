@@ -2,6 +2,8 @@ import { useState } from 'react';
 import Cards from 'react-credit-cards-2';
 import 'react-credit-cards-2/dist/es/styles-compiled.css';
 import { toast } from 'sonner'
+import useCartContext from '../../../hooks/useCartContext';
+import { CartProduct } from '../../../interface';
 
 
 const CardCredit = () => {
@@ -13,6 +15,8 @@ const CardCredit = () => {
     cvc : "",
     focus : ""
   }) ;
+
+  const { dispatch } = useCartContext();
 
   const { number , name ,expiry , cvc  } = cardData;
 
@@ -44,6 +48,8 @@ const CardCredit = () => {
         cvc: "",
         focus : ""
     })
+
+    dispatch( {type : "CLEAR_CART" , payload: {} as CartProduct} )
   }
 
   return (

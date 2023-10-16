@@ -21,7 +21,7 @@ export const initialState : CartState = {
 }
 
 export interface CartAction {
-    type: "ADD_TO_CART" | "REMOVE_FROM_CART" ;
+    type: "ADD_TO_CART" | "REMOVE_FROM_CART" | "CLEAR_CART";
     payload :  CartProduct
 }
 
@@ -75,6 +75,13 @@ export const cartReducer = ( state: CartState , action: CartAction ) : CartState
            }
 
            return state
+        }
+        
+        case "CLEAR_CART" : {
+            return {
+                ...state,
+                cartItems : []
+            }
         }
 
         default:

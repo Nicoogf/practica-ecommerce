@@ -1,8 +1,8 @@
 import { Products } from "../interface" ;
 
-export const getProducts = async ():Promise<Products[]> => {
+export const getProducts = async ( page = 0 ):Promise<Products[]> => {
     try {
-      const response = await fetch('http://localhost:3000/products');
+      const response = await fetch(`http://localhost:3000/products?_page=${page}&_limit=24`);
 
         if( response.ok ){
             const data = await response.json();

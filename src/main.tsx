@@ -8,6 +8,7 @@ import Home from './pages/Home/Home.tsx'
 import { CartProvider } from './context/CartProvides.tsx'
 import CheckOut from './pages/CheckOut/CheckOut.tsx'
 import { QueryClient ,QueryClientProvider } from 'react-query'
+import Login from './pages/Login/Login.tsx'
 
 const queryClient =  new QueryClient() ;
 
@@ -19,7 +20,14 @@ const router = createBrowserRouter([
             { index : true , element : <Home /> },
             { path : "/checkout" , element : <CheckOut />} 
           ]
-      } 
+      },
+      {
+        path: "/login", element: <Login />
+      } ,
+      {
+        path: "/dashboard", element: <p> Dashboard </p>
+      } ,
+
 ])
 
 ReactDOM.createRoot(document.getElementById('root')!).render(

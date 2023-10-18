@@ -15140,6 +15140,19 @@
     },
     {
       "id": 841
+    },
+    {
+      "aniboSeries": "ulti",
+      "character": "ulti",
+      "gameSeries": "ulti",
+      "head": "ulti",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/41/CABJ70.png/1200px-CABJ70.png",
+      "name": "escudo",
+      "releaseData": "2023-10-17",
+      "tail": "dddddd",
+      "type": "a",
+      "price": "77777777",
+      "id": 842
     }
   ]
 }
